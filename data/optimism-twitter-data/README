@@ -1,0 +1,12 @@
+
+optimism twitter data
+---------------------
+includes data used in:
+Ruan, X., Wilson, S.R., and Mihalcea R. "Finding Optimistic and Pessimistic Users on Twitter" ACL 2016.
+
+Files:
+-- user_information.csv
+    For each user, lists username, average optimism annotation of tweet (from -3 to 3), and user profile information-- tweets_annotation.csv
+    For each annotated tweet, the text, the user who tweeted it, and the average annotation of that tweet by the 5 annotators
+-- alltweets.zip
+    Contains a file for each user. Filename is the name of the user concatentated with the type of query that was used to identify the user (OP for optimistic or PE for pessimistic) and the contents are at most 2000 tweets from that user.
