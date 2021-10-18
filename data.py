@@ -65,12 +65,13 @@ def get_tsa():
     with open(path,'rb') as file:
         lines = file.readlines()
         #header = lines[0].decode('utf-8').rstrip().split(',')
-        header = lines[0].decode('utf-8').split(',')
+        header = lines[0].rstrip().decode('utf-8').split(',')
         data_list = []
         for line in lines[1:]:
+            line = line.rstrip()
             props = line.decode('utf-8').split(',')
             if len(props) > 4:
-                sentiment_text = ','.join(props[3:])
+                sentiment_text = ','.join(props[3:]).strip('"')
                 data = props[:3]
                 data.append(sentiment_text)
             else:
@@ -79,3 +80,6 @@ def get_tsa():
             # test index = 4286
     df = pd.DataFrame(data_list, columns = header)
     return df
+
+df = get_tsa()
+print(df)
